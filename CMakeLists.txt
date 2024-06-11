@@ -1,5 +1,9 @@
 cmake_minimum_required (VERSION 3.5)
 
+# make sure the submodules (imgui and glfw) are initialized:
+execute_process (COMMAND git submodule update --init --recursive --depth 1
+                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 project (imgui_glfw_opengl3_template)
 add_subdirectory (glfw) # build glfw as a static library
 
